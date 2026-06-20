@@ -1,0 +1,33 @@
+<svg width="1400" height="720" viewBox="0 0 1400 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs><linearGradient id="arrow" x1="600" y1="360" x2="800" y2="360"><stop stop-color="#2563EB"/><stop offset="1" stop-color="#10B981"/></linearGradient><filter id="shadow" x="-10%" y="-20%" width="120%" height="150%"><feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#0F172A" flood-opacity="0.10"/></filter></defs>
+  <rect width="1400" height="720" rx="44" fill="#F8FAFC"/>
+  <g filter="url(#shadow)">
+    <rect x="54" y="76" width="546" height="568" rx="30" fill="white" stroke="#FCD34D"/>
+    <rect x="54" y="76" width="546" height="68" rx="30" fill="#FFFBEB"/><rect x="54" y="116" width="546" height="28" fill="#FFFBEB"/>
+    <circle cx="88" cy="110" r="8" fill="#F59E0B"/><text x="110" y="117" fill="#92400E" font-family="Arial" font-size="17" font-weight="700">До обработки</text>
+    <g transform="translate(82 176)" font-family="Arial" font-size="12" fill="#475569">
+      <rect width="490" height="72" rx="12" fill="#FEF3C7"/><text x="18" y="30" font-weight="700">Отчёт филиала</text><text x="338" y="30">Январь</text><text x="414" y="30">Февраль</text><text x="18" y="56">Подразделение / показатель</text>
+      <path d="M320 0V72M400 0V72M0 40H490" stroke="#FCD34D"/>
+      <g transform="translate(0 88)"><rect width="490" height="58" rx="9" fill="#F8FAFC"/><text x="18" y="35">Филиал 01 · Выручка</text><text x="338" y="35">120 000</text><text x="414" y="35">124 500</text></g>
+      <g transform="translate(0 158)"><rect width="490" height="58" rx="9" fill="#F8FAFC"/><text x="18" y="35">— · Расходы</text><text x="338" y="35">82 300</text><text x="414" y="35">—</text></g>
+      <g transform="translate(0 228)"><rect width="490" height="58" rx="9" fill="#FFF1F2"/><text x="18" y="35" fill="#BE123C" font-weight="700">Итого</text><text x="338" y="35">202 300</text><text x="414" y="35">208 600</text></g>
+      <g transform="translate(0 306)"><rect width="310" height="14" rx="7" fill="#E2E8F0"/><rect y="28" width="420" height="14" rx="7" fill="#E2E8F0"/><rect y="56" width="250" height="14" rx="7" fill="#E2E8F0"/></g>
+    </g>
+  </g>
+  <path d="M632 360H770" stroke="url(#arrow)" stroke-width="8" stroke-linecap="round"/><path d="M748 334L778 360L748 386" stroke="#10B981" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="700" cy="360" r="54" fill="white" stroke="#DBEAFE" stroke-width="2"/><path d="M680 337H720V347H691V357H715V367H691V384H680V337Z" fill="#2563EB"/><rect x="714" y="329" width="12" height="12" rx="3" fill="#10B981"/>
+  <g filter="url(#shadow)">
+    <rect x="800" y="76" width="546" height="568" rx="30" fill="white" stroke="#86EFAC"/>
+    <rect x="800" y="76" width="546" height="68" rx="30" fill="#ECFDF5"/><rect x="800" y="116" width="546" height="28" fill="#ECFDF5"/>
+    <circle cx="834" cy="110" r="8" fill="#10B981"/><text x="856" y="117" fill="#047857" font-family="Arial" font-size="17" font-weight="700">После обработки</text>
+    <g transform="translate(828 176)" font-family="Arial" font-size="11" fill="#475569">
+      <rect width="490" height="54" rx="10" fill="#DBEAFE"/>
+      <text x="12" y="33" font-weight="700">Подразделение</text><text x="132" y="33" font-weight="700">Период</text><text x="222" y="33" font-weight="700">Показатель</text><text x="352" y="33" font-weight="700">Значение</text>
+      <g transform="translate(0 66)"><rect width="490" height="54" rx="9" fill="#F8FAFC"/><text x="12" y="33">Филиал 01</text><text x="132" y="33">2026-01</text><text x="222" y="33">Выручка</text><text x="352" y="33">120 000</text></g>
+      <g transform="translate(0 132)"><rect width="490" height="54" rx="9" fill="#F8FAFC"/><text x="12" y="33">Филиал 01</text><text x="132" y="33">2026-02</text><text x="222" y="33">Выручка</text><text x="352" y="33">124 500</text></g>
+      <g transform="translate(0 198)"><rect width="490" height="54" rx="9" fill="#F8FAFC"/><text x="12" y="33">Филиал 01</text><text x="132" y="33">2026-01</text><text x="222" y="33">Расходы</text><text x="352" y="33">82 300</text></g>
+      <g transform="translate(0 264)"><rect width="490" height="54" rx="9" fill="#F8FAFC"/><text x="12" y="33">Филиал 01</text><text x="132" y="33">2026-02</text><text x="222" y="33">Расходы</text><text x="352" y="33">84 100</text></g>
+      <rect y="348" width="230" height="42" rx="21" fill="#DCFCE7"/><circle cx="24" cy="369" r="7" fill="#10B981"/><text x="42" y="374" fill="#047857" font-weight="700">Готово для BI / SQL / 1С</text>
+    </g>
+  </g>
+</svg>

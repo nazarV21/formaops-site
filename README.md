@@ -46,6 +46,36 @@ npm run build
 
 Сайт не содержит реальных клиентов, отзывов или кейсов.
 
+## SVG-иллюстрации
+
+Законченные image-like ассеты лежат в `public/illustrations/`:
+
+- `hero-studio-flow.svg` — студийный workflow FormaOps;
+- `sheetnorm-product-mockup.svg` — интерфейс SheetNorm;
+- `before-after-excel.svg` — Excel до и после нормализации;
+- `local-deployment.svg` — локальный контур компании;
+- `team-enterprise-architecture.svg` — целевые конфигурации Team и Enterprise;
+- `pilot-timeline.svg` — этапы пилота;
+- `why-sheetnorm.svg` — визуальная карта преимуществ SheetNorm.
+
+Таблицы, имена файлов, статусы, показатели и архитектурные параметры внутри SVG являются синтетическими демонстрационными данными. Они не описывают клиентов, реальные кейсы или гарантированные параметры промышленной нагрузки.
+
+## Реальные скриншоты SheetNorm
+
+Утверждённые скриншоты нужно складывать в `public/screenshots/sheetnorm/`. В README внутри этой папки перечислены рекомендуемые экраны и требования к подготовке файлов.
+
+Компонент `src/components/ProductScreenshotFrame.tsx` показывает SVG-mockup по умолчанию. Чтобы заменить его реальным экраном, передайте `screenshotSrc`:
+
+```tsx
+<ProductScreenshotFrame
+  screenshotSrc="/screenshots/sheetnorm/dashboard.webp"
+  fallbackSrc="/illustrations/sheetnorm-product-mockup.svg"
+  alt="Интерфейс SheetNorm"
+/>
+```
+
+Если `screenshotSrc` не задан, остаётся безопасный синтетический mockup.
+
 ## Анимации
 
 Анимации реализованы через Motion for React (`motion`):

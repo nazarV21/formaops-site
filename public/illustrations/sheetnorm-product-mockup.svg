@@ -1,0 +1,49 @@
+<svg width="1400" height="900" viewBox="0 0 1400 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="canvas" x1="80" y1="60" x2="1320" y2="840" gradientUnits="userSpaceOnUse"><stop stop-color="#EFF6FF"/><stop offset="1" stop-color="#ECFDF5"/></linearGradient>
+    <linearGradient id="progress" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#2563EB"/><stop offset="1" stop-color="#10B981"/></linearGradient>
+    <filter id="shadow" x="-10%" y="-20%" width="120%" height="150%"><feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#0F172A" flood-opacity="0.14"/></filter>
+  </defs>
+  <rect width="1400" height="900" rx="48" fill="url(#canvas)"/>
+  <g filter="url(#shadow)">
+    <rect x="70" y="58" width="1260" height="782" rx="34" fill="white" stroke="#CBD5E1" stroke-width="2"/>
+    <rect x="70" y="58" width="1260" height="70" rx="34" fill="#F8FAFC"/><rect x="70" y="102" width="1260" height="26" fill="#F8FAFC"/>
+    <circle cx="108" cy="93" r="7" fill="#CBD5E1"/><circle cx="132" cy="93" r="7" fill="#CBD5E1"/><circle cx="156" cy="93" r="7" fill="#CBD5E1"/>
+    <rect x="588" y="82" width="238" height="24" rx="12" fill="#E2E8F0"/>
+    <rect x="70" y="128" width="220" height="712" fill="#0F172A"/>
+    <rect x="102" y="164" width="48" height="48" rx="14" fill="#2563EB"/><text x="126" y="197" text-anchor="middle" fill="white" font-family="Arial" font-size="27" font-weight="700">S</text>
+    <text x="164" y="194" fill="white" font-family="Arial" font-size="20" font-weight="700">SheetNorm</text>
+    <g font-family="Arial" font-size="14">
+      <rect x="92" y="242" width="176" height="46" rx="12" fill="#1E293B"/><text x="122" y="271" fill="white">Dashboard</text>
+      <text x="122" y="329" fill="#94A3B8">Конвертация</text><text x="122" y="381" fill="#94A3B8">AI-помощник</text><text x="122" y="433" fill="#94A3B8">Шаблоны</text>
+      <rect x="92" y="458" width="176" height="46" rx="12" fill="#2563EB"/><text x="122" y="487" fill="white">Задачи</text>
+      <text x="122" y="545" fill="#94A3B8">Отчёты</text>
+    </g>
+    <g transform="translate(330 168)">
+      <text x="0" y="20" fill="#2563EB" font-family="Arial" font-size="12" font-weight="700" letter-spacing="2">ЗАДАЧА ОБРАБОТКИ</text>
+      <text x="0" y="62" fill="#0F172A" font-family="Arial" font-size="28" font-weight="700">filial_report_may.xlsx</text>
+      <text x="0" y="92" fill="#64748B" font-family="Arial" font-size="14">Финансовый отчёт филиала</text>
+      <rect x="722" y="24" width="134" height="36" rx="18" fill="#DCFCE7" stroke="#86EFAC"/><circle cx="744" cy="42" r="6" fill="#10B981"/><text x="760" y="47" fill="#047857" font-family="Arial" font-size="13" font-weight="700">Обработано</text>
+      <rect x="0" y="124" width="856" height="10" rx="5" fill="#E2E8F0"/><rect x="0" y="124" width="856" height="10" rx="5" fill="url(#progress)"/>
+      <text x="0" y="178" fill="#0F172A" font-family="Arial" font-size="17" font-weight="700">Quality report</text>
+      <g transform="translate(0 198)">
+        <rect width="164" height="104" rx="18" fill="#F8FAFC" stroke="#E2E8F0"/><text x="20" y="35" fill="#64748B" font-family="Arial" font-size="12">Строк до</text><text x="20" y="76" fill="#0F172A" font-family="Arial" font-size="28" font-weight="700">148</text>
+        <rect x="180" width="164" height="104" rx="18" fill="#F8FAFC" stroke="#E2E8F0"/><text x="200" y="35" fill="#64748B" font-family="Arial" font-size="12">Строк после</text><text x="200" y="76" fill="#0F172A" font-family="Arial" font-size="28" font-weight="700">96</text>
+        <rect x="360" width="164" height="104" rx="18" fill="#FFFBEB" stroke="#FDE68A"/><text x="380" y="35" fill="#92400E" font-family="Arial" font-size="12">Предупреждения</text><text x="380" y="76" fill="#92400E" font-family="Arial" font-size="28" font-weight="700">2</text>
+      </g>
+      <rect x="0" y="334" width="524" height="218" rx="20" fill="#F8FAFC" stroke="#E2E8F0"/>
+      <text x="20" y="368" fill="#0F172A" font-family="Arial" font-size="15" font-weight="700">Операции</text>
+      <g font-family="Arial" font-size="13" fill="#475569"><circle cx="28" cy="404" r="6" fill="#10B981"/><text x="46" y="409">Заголовок определён: строка 4</text><circle cx="28" cy="444" r="6" fill="#10B981"/><text x="46" y="449">Удалены строки «Итого»</text><circle cx="28" cy="484" r="6" fill="#10B981"/><text x="46" y="489">Периоды перенесены в строки</text><circle cx="28" cy="524" r="6" fill="#F59E0B"/><text x="46" y="529">Проверить 2 пустых значения</text></g>
+      <rect x="548" y="166" width="308" height="386" rx="20" fill="white" stroke="#E2E8F0"/>
+      <text x="568" y="200" fill="#0F172A" font-family="Arial" font-size="15" font-weight="700">Предпросмотр</text>
+      <g transform="translate(568 222)" font-family="Arial" font-size="10" fill="#475569">
+        <rect width="268" height="40" rx="8" fill="#DBEAFE"/><text x="12" y="25" font-weight="700">Подразделение</text><text x="112" y="25" font-weight="700">Период</text><text x="190" y="25" font-weight="700">Значение</text>
+        <g><rect y="48" width="268" height="40" rx="8" fill="#F8FAFC"/><text x="12" y="73">Филиал 01</text><text x="112" y="73">2026-05</text><text x="190" y="73">124 500</text></g>
+        <g><rect y="96" width="268" height="40" rx="8" fill="#F8FAFC"/><text x="12" y="121">Филиал 02</text><text x="112" y="121">2026-05</text><text x="190" y="121">98 240</text></g>
+        <g><rect y="144" width="268" height="40" rx="8" fill="#F8FAFC"/><text x="12" y="169">Филиал 03</text><text x="112" y="169">2026-05</text><text x="190" y="169">110 870</text></g>
+      </g>
+      <rect x="568" y="438" width="268" height="42" rx="12" fill="#FEF3C7"/><circle cx="590" cy="459" r="6" fill="#F59E0B"/><text x="606" y="464" fill="#92400E" font-family="Arial" font-size="11">2 предупреждения требуют проверки</text>
+      <rect x="568" y="494" width="268" height="42" rx="12" fill="#0F172A"/><text x="702" y="520" text-anchor="middle" fill="white" font-family="Arial" font-size="12" font-weight="700">Скачать результат</text>
+    </g>
+  </g>
+</svg>

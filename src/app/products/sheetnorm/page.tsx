@@ -1,19 +1,16 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { AdvantageCard } from "@/components/AdvantageCard";
-import { BeforeAfterTableDemo } from "@/components/BeforeAfterTableDemo";
 import { CompetitorComparisonVisual } from "@/components/CompetitorComparisonVisual";
 import { CTASection } from "@/components/CTASection";
 import { DataFlowVisual } from "@/components/DataFlowVisual";
 import { FAQAccordion } from "@/components/FAQAccordion";
-import { FeatureCard } from "@/components/FeatureCard";
 import { Hero } from "@/components/Hero";
-import { LocalDeploymentVisual } from "@/components/LocalDeploymentVisual";
-import { PackageCard } from "@/components/PackageCard";
+import { ProductScreenshotFrame } from "@/components/ProductScreenshotFrame";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
-import { SheetNormInterfaceMockup } from "@/components/SheetNormInterfaceMockup";
-import { StatsStrip } from "@/components/StatsStrip";
+import { StatusBadge } from "@/components/StatusBadge";
 import { VisualSectionDivider } from "@/components/VisualSectionDivider";
 import { sheetNormFaq } from "@/lib/demo";
 import { sheetNormPackages } from "@/lib/packages";
@@ -40,41 +37,6 @@ const problems = [
   "ручная подготовка перед загрузкой",
 ];
 
-const companyValue = [
-  [
-    "Сокращение ручной подготовки",
-    "Меньше времени на очистку и перекладывание данных перед загрузкой.",
-  ],
-  [
-    "Снижение количества ошибок",
-    "Правило проверяется на предпросмотре и затем применяется повторяемо.",
-  ],
-  [
-    "Единый формат таблиц",
-    "Итоговые файлы проще загружать в 1С, Power BI, SQL и BI-системы.",
-  ],
-  [
-    "Повторяемые шаблоны",
-    "Утверждённая логика сохраняется для похожих файлов.",
-  ],
-  [
-    "История операций",
-    "Команда видит, какие файлы обработаны и с каким результатом.",
-  ],
-  [
-    "Отчёт качества",
-    "Фиксируются строки, колонки, предупреждения и статус результата.",
-  ],
-  [
-    "Локальная обработка",
-    "Файлы могут обрабатываться внутри инфраструктуры компании.",
-  ],
-  [
-    "Подготовка данных для BI",
-    "Сложные отчёты приводятся к формату, пригодному для аналитики.",
-  ],
-];
-
 export default function SheetNormPage() {
   return (
     <>
@@ -82,85 +44,73 @@ export default function SheetNormPage() {
         eyebrow="Готов к пилоту"
         title={"SheetNorm\nНормализация сложных Excel-отчётов для аналитики"}
         subtitle="Локальная система с ИИ-помощником, которая превращает файлы с объединёнными ячейками, многоуровневыми заголовками, кросс-таблицами и служебными строками в готовые таблицы для 1С, Power BI, SQL и BI-систем."
+        note="AI помогает создать правило, пользователь проверяет результат, а повторная обработка выполняется по сохранённому шаблону."
         primaryLabel="Запросить пилот"
         primaryHref="/pilot"
         secondaryLabel="Посмотреть конфигурации"
         secondaryHref="#packages"
-        visual={<SheetNormInterfaceMockup compact />}
+        visual={
+          <ProductScreenshotFrame
+            fallbackSrc="/illustrations/sheetnorm-product-mockup.svg"
+            alt="Демонстрационный интерфейс SheetNorm"
+            priority
+          />
+        }
       />
-
-      <StatsStrip />
-      <VisualSectionDivider />
 
       <section className="container-page py-14">
         <SectionHeading
-          eyebrow="Проблема"
+          eyebrow="Исходная проблема"
           title="Excel удобно заполнять вручную, но сложно загружать автоматически"
-          description="Компании регулярно получают Excel-файлы от филиалов, подрядчиков и подразделений. Такие отчёты хорошо читаются человеком, но требуют ручной очистки перед загрузкой в аналитические системы."
+          description="Компании получают отчёты от филиалов, подрядчиков и подразделений. Такие файлы читаются человеком, но требуют ручной очистки перед загрузкой в аналитические системы."
         />
-        <div className="mt-8 flex flex-wrap gap-3">
+        <div className="mt-7 flex flex-wrap gap-3">
           {problems.map((problem) => (
             <span
               key={problem}
-              className="rounded-full border border-borderline bg-white px-4 py-2 text-sm font-medium text-muted shadow-sm"
+              className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-muted shadow-sm"
             >
               {problem}
             </span>
           ))}
         </div>
         <Reveal className="mt-10">
-          <BeforeAfterTableDemo />
+          <Image
+            src="/illustrations/before-after-excel.svg"
+            alt="Excel до и после нормализации в SheetNorm"
+            width={1400}
+            height={720}
+            className="h-auto w-full rounded-[2rem] shadow-[0_24px_70px_rgba(15,23,42,0.10)]"
+          />
         </Reveal>
-      </section>
-
-      <section className="container-page py-14">
-        <SectionHeading
-          eyebrow="Как работает SheetNorm"
-          title="AI помогает создать правило, массовая обработка идёт по проверенным шаблонам"
-          description="Пользователь сохраняет контроль: проверяет структуру, уточняет инструкцию и подтверждает результат до повторного применения."
-        />
-        <div className="mt-8">
-          <DataFlowVisual />
-        </div>
       </section>
 
       <VisualSectionDivider />
 
       <section className="container-page py-14">
-        <SectionHeading title="Что получает компания" />
-        <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {companyValue.map(([title, description]) => (
-            <FeatureCard key={title} title={title} description={description} />
-          ))}
-        </div>
-      </section>
-
-      <section className="container-page py-14">
-        <div className="grid gap-8 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm lg:grid-cols-[0.8fr_1.2fr] lg:items-center sm:p-8">
-          <SectionHeading
-            eyebrow="Подготовка до BI"
-            title="Когда обычных Excel-инструментов недостаточно"
-            description="SheetNorm полезен там, где файлы поступают в разных форматах, содержат объединённые ячейки, многоуровневые заголовки, кросс-таблицы и служебные строки."
-          />
-          <div className="rounded-2xl border border-blue-100 bg-blue-50/60 p-5">
-            <p className="text-lg font-semibold text-ink">
-              Не замена Power Query и BI-инструментам
-            </p>
-            <p className="mt-3 leading-7 text-muted">
-              SheetNorm помогает подготовить и унифицировать данные до загрузки
-              в существующий аналитический контур. Power Query, 1С, Power BI,
-              SQL и корпоративные хранилища остаются системами назначения.
+        <div className="grid items-center gap-10 lg:grid-cols-[0.82fr_1.18fr]">
+          <div>
+            <SectionHeading
+              eyebrow="Почему SheetNorm"
+              title="Подготовка сложной Excel-отчётности как управляемый процесс"
+              description="Продукт объединяет работу со сложной структурой, создание правила, проверку результата, повторяемые шаблоны и контроль задач."
+            />
+            <p className="mt-6 leading-7 text-muted">
+              SheetNorm не заменяет Excel, Power Query или BI-системы. Он
+              помогает привести исходные отчёты к повторяемому и проверяемому
+              формату до загрузки в существующий контур.
             </p>
           </div>
+          <Reveal delay={0.08}>
+            <Image
+              src="/illustrations/why-sheetnorm.svg"
+              alt="Шесть ключевых преимуществ SheetNorm"
+              width={1200}
+              height={760}
+              className="h-auto w-full rounded-[2rem] shadow-sm"
+            />
+          </Reveal>
         </div>
-      </section>
-
-      <section className="container-page py-14">
-        <SectionHeading
-          eyebrow="Преимущества"
-          title="Почему SheetNorm закрывает задачу, которую сложно решить обычными Excel-инструментами"
-          description="SheetNorm не заменяет Excel, Power Query или BI-системы. Он помогает подготовить данные до загрузки в них: привести сложные Excel-отчёты к повторяемому и проверяемому формату."
-        />
         <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {sheetNormAdvantages.map((advantage) => (
             <AdvantageCard key={advantage.title} {...advantage} />
@@ -169,11 +119,11 @@ export default function SheetNormPage() {
       </section>
 
       <section className="container-page py-14">
-        <div className="rounded-[2rem] border border-primary/15 bg-gradient-to-br from-white to-blue-50/70 p-6 shadow-sm sm:p-8">
+        <div className="rounded-[2rem] border border-primary/15 bg-gradient-to-br from-white to-blue-50/70 p-6 shadow-sm sm:p-9">
           <SectionHeading
             eyebrow="Позиционирование"
             title="Не ещё один чат с Excel"
-            description="SheetNorm — не просто AI-чат для таблиц. Продукт строится вокруг повторяемого процесса: загрузка файла, анализ структуры, создание правила, проверка результата, сохранение шаблона и повторная обработка похожих файлов."
+            description="AI используется для создания и уточнения правила. Пользователь проверяет результат, а массовая повторная обработка идёт по сохранённому шаблону."
           />
           <div className="mt-8">
             <DataFlowVisual />
@@ -183,19 +133,80 @@ export default function SheetNormPage() {
 
       <section className="container-page py-14">
         <SectionHeading
-          eyebrow="Экосистема"
-          title="Где место SheetNorm в существующей экосистеме"
-          description="Компании уже используют Excel, Power Query, BI-системы и ручные скрипты. Каждый инструмент полезен в своей зоне, а SheetNorm закрывает промежуток между хаотичными Excel-файлами и корпоративной аналитикой."
+          eyebrow="Место в экосистеме"
+          title="Между хаотичными Excel-файлами и корпоративной аналитикой"
+          description="Excel, Power Query, Copilot, OpenRefine и Python полезны в своих зонах. SheetNorm закрывает этап подготовки сложных Excel-файлов к повторяемой загрузке и анализу."
         />
         <div className="mt-8">
           <CompetitorComparisonVisual />
         </div>
       </section>
 
+      <VisualSectionDivider />
+
+      <section id="packages" className="container-page py-14">
+        <SectionHeading
+          eyebrow="Конфигурации после пилота"
+          title="Team для отдела, Enterprise для корпоративной инфраструктуры"
+          description="Архитектурная схема показывает целевое направление. Точный состав сервисов и параметры определяются только после пилота."
+        />
+        <Reveal className="mt-10">
+          <Image
+            src="/illustrations/team-enterprise-architecture.svg"
+            alt="Сравнение целевой архитектуры SheetNorm Team и Enterprise"
+            width={1400}
+            height={800}
+            className="h-auto w-full rounded-[2rem] shadow-[0_24px_70px_rgba(15,23,42,0.10)]"
+          />
+        </Reveal>
+        <div className="mt-6 grid gap-4 lg:grid-cols-2">
+          {sheetNormPackages.map((item) => (
+            <div
+              key={item.name}
+              className="rounded-2xl border border-slate-200 bg-white p-5"
+            >
+              <div className="flex items-center justify-between gap-3">
+                <h3 className="font-semibold text-ink">{item.name}</h3>
+                <StatusBadge tone={item.badge === "Team" ? "blue" : "green"}>
+                  После пилота
+                </StatusBadge>
+              </div>
+              <p className="mt-3 text-sm leading-6 text-muted">
+                {item.summary}
+              </p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-6 rounded-3xl border border-amber-200 bg-amber-50 p-5 leading-7 text-amber-900">
+          Промышленная конфигурация подбирается после пилотного проекта и
+          тестирования на файлах компании. Нагрузка, количество пользователей и
+          SLA не обещаются без отдельного нагрузочного тестирования.
+        </p>
+      </section>
+
+      <section className="container-page py-14">
+        <div className="grid items-center gap-10 lg:grid-cols-[0.72fr_1.28fr]">
+          <SectionHeading
+            eyebrow="Локальная обработка"
+            title="Данные могут оставаться внутри инфраструктуры компании"
+            description="Целевая конфигурация предполагает локальный контур: пользователи, SheetNorm, база правил, файловое хранилище и отчёты. Конкретные меры защиты требуют отдельного согласования и аудита."
+          />
+          <Reveal delay={0.08}>
+            <Image
+              src="/illustrations/local-deployment.svg"
+              alt="Целевой локальный контур развёртывания SheetNorm"
+              width={1200}
+              height={720}
+              className="h-auto w-full rounded-[2rem] shadow-sm"
+            />
+          </Reveal>
+        </div>
+      </section>
+
       <section className="container-page py-14">
         <SectionHeading
           eyebrow="Для кого"
-          title="Особенно полезно командам с регулярной входящей отчётностью"
+          title="Команды с регулярной входящей отчётностью"
         />
         <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-5">
           {audienceCards.map(([title, description], index) => (
@@ -212,35 +223,6 @@ export default function SheetNormPage() {
           ))}
         </div>
       </section>
-
-      <section id="packages" className="container-page py-14">
-        <SectionHeading
-          eyebrow="Конфигурации после пилота"
-          title="Team для отдела, Enterprise для корпоративной инфраструктуры"
-          description="Карточки показывают целевую архитектуру. Точный состав и параметры определяются только после пилота."
-        />
-        <div className="mt-8 grid gap-6 lg:grid-cols-2">
-          {sheetNormPackages.map((item) => (
-            <PackageCard key={item.name} item={item} />
-          ))}
-        </div>
-        <p className="mt-6 rounded-3xl border border-amber-200 bg-amber-50 p-5 leading-7 text-amber-900">
-          Промышленная конфигурация подбирается после пилотного проекта и
-          тестирования на файлах компании. Нагрузка, количество пользователей и
-          SLA не обещаются без отдельного нагрузочного тестирования.
-        </p>
-      </section>
-
-      <section className="container-page grid gap-10 py-14 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-        <SectionHeading
-          eyebrow="Локальная обработка"
-          title="Без обязательной передачи файлов во внешние AI API"
-          description="Целевая конфигурация может работать внутри инфраструктуры компании. Конкретные меры защиты, права доступа и хранение файлов требуют отдельного согласования и аудита."
-        />
-        <LocalDeploymentVisual />
-      </section>
-
-      <VisualSectionDivider />
 
       <section className="container-page py-14">
         <div className="rounded-3xl border border-borderline bg-white p-8 shadow-sm">
