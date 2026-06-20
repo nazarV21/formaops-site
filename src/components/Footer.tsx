@@ -11,7 +11,7 @@ export function Footer() {
             href="/"
           >
             <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-ink text-lg font-bold text-white">
-              F
+              <img src="/favicon.svg" alt="logo" className="h-6 w-6 object-contain" />
             </span>
             <span className="text-lg font-semibold text-ink">FormaOps</span>
           </Link>
