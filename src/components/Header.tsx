@@ -9,9 +9,10 @@ export function Header() {
           className="focus-ring flex items-center gap-3 rounded-md"
           href="/"
           aria-label="FormaOps — главная"
+          
         >
           <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-ink text-lg font-bold text-white">
-            F
+            <img src="/favicon.svg" alt="logo" className="h-6 w-6 object-contain" />
           </span>
           <span>
             <span className="block text-lg font-semibold leading-none text-ink">
