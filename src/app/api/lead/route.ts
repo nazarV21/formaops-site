@@ -41,7 +41,7 @@ function validate(payload: LeadInput) {
     email: stringValue(payload.email),
     contact: stringValue(payload.contact),
     message: stringValue(payload.message),
-    sourcePage: stringValue(payload.sourcePage) || "unknown"
+    sourcePage: stringValue(payload.sourcePage) || "unknown",
   };
 
   const errors: Partial<Record<keyof LeadInput, string>> = {};
@@ -56,14 +56,17 @@ function validate(payload: LeadInput) {
   }
   if (!lead.contact) errors.contact = "Укажите Telegram или телефон.";
   if (!lead.message) errors.message = "Кратко опишите задачу.";
-  if (payload.consent !== true) errors.consent = "Нужно согласие на обработку персональных данных.";
+  if (payload.consent !== true)
+    errors.consent = "Нужно согласие на обработку персональных данных.";
 
   if (lead.name.length > 120) errors.name = "Слишком длинное имя.";
-  if (lead.company.length > 160) errors.company = "Слишком длинное название компании.";
+  if (lead.company.length > 160)
+    errors.company = "Слишком длинное название компании.";
   if (lead.role.length > 160) errors.role = "Слишком длинная должность.";
   if (lead.email.length > 180) errors.email = "Слишком длинный email.";
   if (lead.contact.length > 180) errors.contact = "Слишком длинный контакт.";
-  if (lead.message.length > 3000) errors.message = "Описание задачи слишком длинное.";
+  if (lead.message.length > 3000)
+    errors.message = "Описание задачи слишком длинное.";
 
   return { lead, errors };
 }
@@ -84,25 +87,34 @@ export async function POST(request: NextRequest) {
   const contentType = request.headers.get("content-type") || "";
 
   if (!contentType.includes("application/json")) {
-    return NextResponse.json({ message: "API принимает только JSON и не принимает файлы." }, { status: 415 });
+    return NextResponse.json(
+      { message: "API принимает только JSON и не принимает файлы." },
+      { status: 415 },
+    );
   }
 
   let payload: LeadInput;
   try {
     payload = (await request.json()) as LeadInput;
   } catch {
-    return NextResponse.json({ message: "Некорректный JSON." }, { status: 400 });
+    return NextResponse.json(
+      { message: "Некорректный JSON." },
+      { status: 400 },
+    );
   }
 
   const { lead, errors } = validate(payload);
 
   if (Object.keys(errors).length > 0) {
-    return NextResponse.json({ message: "Проверьте поля формы.", errors }, { status: 400 });
+    return NextResponse.json(
+      { message: "Проверьте поля формы.", errors },
+      { status: 400 },
+    );
   }
 
   const storedLead: StoredLead = {
     ...lead,
-    createdAt: new Date().toISOString()
+    createdAt: new Date().toISOString(),
   };
 
   await mkdir(dataDir, { recursive: true });
@@ -110,5 +122,10 @@ export async function POST(request: NextRequest) {
   leads.push(storedLead);
   await writeFile(leadsFile, JSON.stringify(leads, null, 2), "utf8");
 
-  return NextResponse.json({ message: "Заявка отправлена. Мы свяжемся с вами после обработки запроса." }, { status: 201 });
+  return NextResponse.json(
+    {
+      message: "Заявка отправлена. Мы свяжемся с вами после обработки запроса.",
+    },
+    { status: 201 },
+  );
 }

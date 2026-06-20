@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { siteConfig } from "@/lib/site";
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
     default: "FormaOps — прикладные ИИ-инструменты для бизнеса",
-    template: "%s"
+    template: "%s",
   },
   description: siteConfig.description,
   openGraph: {
@@ -17,17 +18,20 @@ export const metadata: Metadata = {
     url: siteConfig.url,
     siteName: siteConfig.name,
     locale: "ru_RU",
-    type: "website"
+    type: "website",
   },
   icons: {
-    icon: "/favicon.svg"
-  }
+    icon: "/favicon.svg",
+  },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ru">
       <body>
+        <AnimatedBackground />
         <Header />
         <main>{children}</main>
         <Footer />

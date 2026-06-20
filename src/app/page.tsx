@@ -1,63 +1,39 @@
-import Link from "next/link";
+import { AnimatedHeroDiagram } from "@/components/AnimatedHeroDiagram";
 import { CTASection } from "@/components/CTASection";
 import { FeatureCard } from "@/components/FeatureCard";
 import { Hero } from "@/components/Hero";
-import { ProcessSteps } from "@/components/ProcessSteps";
+import { LocalDeploymentVisual } from "@/components/LocalDeploymentVisual";
+import { PilotTimelineVisual } from "@/components/PilotTimelineVisual";
 import { ProductCard } from "@/components/ProductCard";
+import { ProductMockup } from "@/components/ProductMockup";
+import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
-import { StatusBadge } from "@/components/StatusBadge";
+import { StatsStrip } from "@/components/StatsStrip";
+import { VisualSectionDivider } from "@/components/VisualSectionDivider";
 import { developmentProducts, readyProducts } from "@/lib/products";
-import { pilotSteps } from "@/lib/site";
 
 const focusAreas = [
   {
     title: "Excel и отчётность",
-    description: "Автоматизация обработки сложных таблиц, кросс-таблиц, объединённых ячеек и нестандартных форматов."
+    description:
+      "Автоматизация обработки сложных таблиц, кросс-таблиц, объединённых ячеек и нестандартных форматов.",
   },
   {
     title: "Документы и шаблоны",
-    description: "Подготовка, проверка и заполнение документов по корпоративным правилам."
+    description:
+      "Подготовка, проверка и заполнение документов по корпоративным правилам.",
   },
   {
     title: "Контроль данных",
-    description: "Поиск ошибок, пропусков, дубликатов и несоответствий в таблицах."
+    description:
+      "Поиск ошибок, пропусков, дубликатов и несоответствий в таблицах.",
   },
   {
     title: "Локальные ИИ-инструменты",
-    description: "Решения, которые могут работать внутри инфраструктуры компании."
-  }
+    description:
+      "Решения, которые могут работать внутри инфраструктуры компании.",
+  },
 ];
-
-function FlowVisual() {
-  const steps = [
-    ["Хаотичные файлы", "Excel-отчёты, служебные строки, разные форматы"],
-    ["ИИ-инструмент", "Анализ структуры, правило, предпросмотр"],
-    ["Готовые данные", "Таблицы для 1С, Power BI, SQL и BI"]
-  ];
-
-  return (
-    <div className="rounded-[2rem] border border-borderline bg-white p-6 shadow-soft">
-      <div className="mb-6 flex items-center justify-between gap-4">
-        <StatusBadge tone="blue">Локальная обработка</StatusBadge>
-        <StatusBadge tone="green">После пилота</StatusBadge>
-      </div>
-      <div className="grid gap-4">
-        {steps.map(([title, text], index) => (
-          <div key={title} className="rounded-2xl border border-borderline bg-slate-50 p-5">
-            <div className="flex items-start gap-4">
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">{index + 1}</div>
-              <div>
-                <p className="font-semibold text-ink">{title}</p>
-                <p className="mt-1 text-sm leading-6 text-muted">{text}</p>
-              </div>
-            </div>
-            {index < 2 ? <div className="mx-auto mt-4 h-6 w-px bg-borderline" /> : null}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 export default function HomePage() {
   const sheetNorm = readyProducts[0];
@@ -72,44 +48,63 @@ export default function HomePage() {
         primaryHref="/products"
         secondaryLabel="Запросить пилот"
         secondaryHref="/pilot"
-        visual={<FlowVisual />}
+        visual={<AnimatedHeroDiagram />}
       />
 
+      <StatsStrip />
+      <VisualSectionDivider />
+
       <section className="container-page py-16">
-        <SectionHeading eyebrow="Что мы делаем" title="Прикладная автоматизация там, где ручная работа держится на Excel, документах и проверках" />
+        <SectionHeading
+          eyebrow="Что мы делаем"
+          title="Автоматизация там, где ручная работа держится на Excel, документах и проверках"
+          description="Визуализируем процесс, формализуем правила и превращаем повторяемую ручную работу в контролируемый инструмент."
+        />
         <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {focusAreas.map((item) => (
-            <FeatureCard key={item.title} title={item.title} description={item.description} />
+            <FeatureCard
+              key={item.title}
+              title={item.title}
+              description={item.description}
+            />
           ))}
         </div>
       </section>
 
       <section className="container-page py-16">
-        <SectionHeading eyebrow="Первый продукт" title="SheetNorm готов к контролируемому пилоту" />
-        <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_0.75fr]">
-          <ProductCard product={sheetNorm} />
-          <div className="rounded-3xl border border-borderline bg-white p-6 shadow-sm">
-            <h3 className="text-2xl font-semibold text-ink">Какую задачу закрывает</h3>
-            <p className="mt-4 leading-8 text-muted">
-              SheetNorm помогает превратить файлы с объединёнными ячейками, многоуровневыми заголовками, кросс-таблицами и итоговыми строками в повторяемый формат для загрузки в корпоративные системы.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link className="focus-ring rounded-full bg-primary px-5 py-3 font-semibold text-white transition hover:bg-blue-700" href="/products/sheetnorm">
-                Подробнее
-              </Link>
-              <Link className="focus-ring rounded-full border border-borderline px-5 py-3 font-semibold text-ink transition hover:border-primary hover:text-primary" href="/pilot">
-                Запросить демо
-              </Link>
-            </div>
+        <div className="section-surface p-1 sm:p-6">
+          <SectionHeading
+            eyebrow="Первый продукт"
+            title="SheetNorm выглядит и работает как прикладной продукт"
+            description="Интерфейс объединяет загрузку файлов, AI-помощник, библиотеку шаблонов, задачи обработки и контроль качества результата."
+          />
+          <div className="mt-10 grid items-start gap-7 xl:grid-cols-[0.7fr_1.3fr]">
+            <ProductCard product={sheetNorm} />
+            <Reveal delay={0.08}>
+              <ProductMockup />
+            </Reveal>
           </div>
         </div>
+      </section>
+
+      <VisualSectionDivider />
+
+      <section className="container-page grid gap-10 py-16 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+        <SectionHeading
+          eyebrow="Локальная обработка"
+          title="Данные остаются внутри инфраструктуры компании"
+          description="SheetNorm может разворачиваться локально. Для пилота используются обезличенные файлы, а промышленная конфигурация подбирается после тестирования и согласования требований."
+        />
+        <Reveal delay={0.08}>
+          <LocalDeploymentVisual />
+        </Reveal>
       </section>
 
       <section className="container-page py-16">
         <SectionHeading
           eyebrow="Продукты в разработке"
-          title="Линейка решений развивается вокруг регулярных операционных задач"
-          description="Мы развиваем линейку прикладных ИИ-продуктов. Сейчас доступен SheetNorm, следующие решения находятся в стадии проектирования и прототипирования."
+          title="Линейка решений вокруг регулярных операционных задач"
+          description="Сейчас доступен SheetNorm. Следующие продукты находятся в стадии проектирования и прототипирования — их визуалы показывают направление, а не готовую функциональность."
         />
         <div className="mt-10 grid gap-5 md:grid-cols-2">
           {developmentProducts.map((product) => (
@@ -118,10 +113,16 @@ export default function HomePage() {
         </div>
       </section>
 
+      <VisualSectionDivider />
+
       <section className="container-page py-16">
-        <SectionHeading eyebrow="Как проходит пилот" title="Короткая проверка на реальных обезличенных данных до покупки и внедрения" />
+        <SectionHeading
+          eyebrow="Как проходит пилот"
+          title="Семь шагов от задачи до рекомендации по внедрению"
+          description="Пилот проверяет применимость решения на обезличенных данных и не подменяет промышленное тестирование."
+        />
         <div className="mt-10">
-          <ProcessSteps steps={pilotSteps} />
+          <PilotTimelineVisual />
         </div>
       </section>
 

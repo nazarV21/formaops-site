@@ -6,11 +6,12 @@ import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Контакты — FormaOps",
-  description: "Оставьте заявку на пилот FormaOps или обсудите задачу автоматизации Excel-файлов, документов и отчётности.",
+  description:
+    "Оставьте заявку на пилот FormaOps или обсудите задачу автоматизации Excel-файлов, документов и отчётности.",
   openGraph: {
     title: "Контакты — FormaOps",
-    description: "Форма заявки и контакты FormaOps."
-  }
+    description: "Форма заявки и контакты FormaOps.",
+  },
 };
 
 export default function ContactsPage() {
@@ -33,7 +34,10 @@ export default function ContactsPage() {
             <div>
               <dt className="font-semibold text-ink">Email</dt>
               <dd className="mt-1">
-                <a className="text-primary underline-offset-4 hover:underline" href={"mailto:" + siteConfig.contacts.email}>
+                <a
+                  className="text-primary underline-offset-4 hover:underline"
+                  href={"mailto:" + siteConfig.contacts.email}
+                >
                   {siteConfig.contacts.email}
                 </a>
               </dd>

@@ -17,7 +17,7 @@ export const products: Product[] = [
     statusLabel: "Готов к пилоту",
     description:
       "Нормализация сложных Excel-отчётов для аналитики, 1С, Power BI, SQL и корпоративных хранилищ.",
-    href: "/products/sheetnorm"
+    href: "/products/sheetnorm",
   },
   {
     name: "DocuFlow",
@@ -25,7 +25,7 @@ export const products: Product[] = [
     status: "development",
     statusLabel: "В разработке",
     description:
-      "ИИ-инструмент для подготовки документов по шаблонам: договоров, заявок, писем, служебных записок и отчётов."
+      "ИИ-инструмент для подготовки документов по шаблонам: договоров, заявок, писем, служебных записок и отчётов.",
   },
   {
     name: "TenderCheck",
@@ -33,7 +33,7 @@ export const products: Product[] = [
     status: "development",
     statusLabel: "В разработке",
     description:
-      "Помощник для анализа тендерной документации, требований, сроков, рисков и состава обязательных документов."
+      "Помощник для анализа тендерной документации, требований, сроков, рисков и состава обязательных документов.",
   },
   {
     name: "ActFlow",
@@ -41,7 +41,7 @@ export const products: Product[] = [
     status: "development",
     statusLabel: "В разработке",
     description:
-      "Система для подготовки актов, ведомостей и отчётных документов по данным компании."
+      "Система для подготовки актов, ведомостей и отчётных документов по данным компании.",
   },
   {
     name: "DataCheck",
@@ -49,9 +49,13 @@ export const products: Product[] = [
     status: "development",
     statusLabel: "В разработке",
     description:
-      "Инструмент для проверки таблиц на ошибки, пропуски, дубликаты, неверные форматы и несоответствия."
-  }
+      "Инструмент для проверки таблиц на ошибки, пропуски, дубликаты, неверные форматы и несоответствия.",
+  },
 ];
 
-export const readyProducts = products.filter((product) => product.status === "pilot");
-export const developmentProducts = products.filter((product) => product.status === "development");
+export const readyProducts = products.filter(
+  (product) => product.status === "pilot",
+);
+export const developmentProducts = products.filter(
+  (product) => product.status === "development",
+);

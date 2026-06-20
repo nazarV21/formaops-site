@@ -8,11 +8,13 @@ import { developmentProducts, readyProducts } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: "Продукты — FormaOps",
-  description: "Каталог продуктов FormaOps: SheetNorm готов к пилоту, DocuFlow, TenderCheck, ActFlow и DataCheck находятся в разработке.",
+  description:
+    "Каталог продуктов FormaOps: SheetNorm готов к пилоту, DocuFlow, TenderCheck, ActFlow и DataCheck находятся в разработке.",
   openGraph: {
     title: "Продукты — FormaOps",
-    description: "Каталог прикладных ИИ-продуктов FormaOps для Excel, документов, отчётности и контроля данных."
-  }
+    description:
+      "Каталог прикладных ИИ-продуктов FormaOps для Excel, документов, отчётности и контроля данных.",
+  },
 };
 
 export default function ProductsPage() {
@@ -52,13 +54,21 @@ export default function ProductsPage() {
             title="Индивидуальный пилот"
             description="Если у компании есть регулярный ручной процесс с Excel-файлами, документами или отчётностью, FormaOps может оценить возможность автоматизации и подготовить пилотное решение."
           />
-          <Link className="focus-ring mt-8 inline-flex rounded-full bg-primary px-6 py-3 font-semibold text-white transition hover:bg-blue-700" href="/contacts">
+          <Link
+            className="focus-ring mt-8 inline-flex rounded-full bg-primary px-6 py-3 font-semibold text-white transition hover:bg-blue-700"
+            href="/contacts"
+          >
             Обсудить задачу
           </Link>
         </div>
       </section>
 
-      <CTASection title="Начните с проверки на своих данных" text="Пилот помогает понять применимость решения, ограничения и будущую конфигурацию до промышленного внедрения." buttonLabel="Запросить пилот" href="/pilot" />
+      <CTASection
+        title="Начните с проверки на своих данных"
+        text="Пилот помогает понять применимость решения, ограничения и будущую конфигурацию до промышленного внедрения."
+        buttonLabel="Запросить пилот"
+        href="/pilot"
+      />
     </>
   );
 }

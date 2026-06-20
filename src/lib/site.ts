@@ -7,14 +7,14 @@ export const siteConfig = {
   contacts: {
     email: "your-email@example.com",
     telegram: "@your_telegram",
-    city: "Россия"
+    city: "Россия",
   },
   nav: [
     { label: "Продукты", href: "/products" },
     { label: "SheetNorm", href: "/products/sheetnorm" },
     { label: "Пилот", href: "/pilot" },
     { label: "О студии", href: "/about" },
-    { label: "Контакты", href: "/contacts" }
+    { label: "Контакты", href: "/contacts" },
   ],
   footerLinks: [
     { label: "Продукты", href: "/products" },
@@ -23,8 +23,8 @@ export const siteConfig = {
     { label: "О студии", href: "/about" },
     { label: "Контакты", href: "/contacts" },
     { label: "Политика", href: "/privacy" },
-    { label: "Условия", href: "/terms" }
-  ]
+    { label: "Условия", href: "/terms" },
+  ],
 } as const;
 
 export const pilotSteps = [
@@ -34,5 +34,5 @@ export const pilotSteps = [
   "Настраиваем демонстрационный сценарий.",
   "Показываем результат.",
   "Оцениваем экономию времени.",
-  "Предлагаем конфигурацию Team или Enterprise."
+  "Предлагаем конфигурацию Team или Enterprise.",
 ];
