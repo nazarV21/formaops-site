@@ -5,20 +5,18 @@ export const siteConfig = {
     "FormaOps разрабатывает локальные продукты для автоматизации работы с Excel-файлами, документами, отчётностью и корпоративными данными.",
   url: "https://formaops.ru",
   contacts: {
-    email: "your-email@example.com",
-    telegram: "@your_telegram",
-    city: "Россия",
+    email: "c30nazar@gmail.com",
+    telegram: "@ngggoat",
+    city: "Россия, Тюмень",
   },
   nav: [
     { label: "Продукты", href: "/products" },
-    { label: "SheetNorm", href: "/products/sheetnorm" },
     { label: "Пилот", href: "/pilot" },
     { label: "О студии", href: "/about" },
     { label: "Контакты", href: "/contacts" },
   ],
   footerLinks: [
     { label: "Продукты", href: "/products" },
-    { label: "SheetNorm", href: "/products/sheetnorm" },
     { label: "Пилот", href: "/pilot" },
     { label: "О студии", href: "/about" },
     { label: "Контакты", href: "/contacts" },
