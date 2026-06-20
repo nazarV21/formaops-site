@@ -1,20 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AdvantageCard } from "@/components/AdvantageCard";
 import { BeforeAfterTableDemo } from "@/components/BeforeAfterTableDemo";
+import { CompetitorComparisonVisual } from "@/components/CompetitorComparisonVisual";
 import { CTASection } from "@/components/CTASection";
+import { DataFlowVisual } from "@/components/DataFlowVisual";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { FeatureCard } from "@/components/FeatureCard";
 import { Hero } from "@/components/Hero";
 import { LocalDeploymentVisual } from "@/components/LocalDeploymentVisual";
 import { PackageCard } from "@/components/PackageCard";
-import { ProductMockup } from "@/components/ProductMockup";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
+import { SheetNormInterfaceMockup } from "@/components/SheetNormInterfaceMockup";
 import { StatsStrip } from "@/components/StatsStrip";
 import { VisualSectionDivider } from "@/components/VisualSectionDivider";
-import { WorkflowVisual } from "@/components/WorkflowVisual";
 import { sheetNormFaq } from "@/lib/demo";
 import { sheetNormPackages } from "@/lib/packages";
+import { audienceCards, sheetNormAdvantages } from "@/lib/sheetnorm-content";
 
 export const metadata: Metadata = {
   title: "SheetNorm — нормализация сложных Excel-отчётов",
@@ -83,7 +86,7 @@ export default function SheetNormPage() {
         primaryHref="/pilot"
         secondaryLabel="Посмотреть конфигурации"
         secondaryHref="#packages"
-        visual={<ProductMockup compact />}
+        visual={<SheetNormInterfaceMockup compact />}
       />
 
       <StatsStrip />
@@ -117,7 +120,7 @@ export default function SheetNormPage() {
           description="Пользователь сохраняет контроль: проверяет структуру, уточняет инструкцию и подтверждает результат до повторного применения."
         />
         <div className="mt-8">
-          <WorkflowVisual />
+          <DataFlowVisual />
         </div>
       </section>
 
@@ -149,6 +152,64 @@ export default function SheetNormPage() {
               SQL и корпоративные хранилища остаются системами назначения.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section className="container-page py-14">
+        <SectionHeading
+          eyebrow="Преимущества"
+          title="Почему SheetNorm закрывает задачу, которую сложно решить обычными Excel-инструментами"
+          description="SheetNorm не заменяет Excel, Power Query или BI-системы. Он помогает подготовить данные до загрузки в них: привести сложные Excel-отчёты к повторяемому и проверяемому формату."
+        />
+        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {sheetNormAdvantages.map((advantage) => (
+            <AdvantageCard key={advantage.title} {...advantage} />
+          ))}
+        </div>
+      </section>
+
+      <section className="container-page py-14">
+        <div className="rounded-[2rem] border border-primary/15 bg-gradient-to-br from-white to-blue-50/70 p-6 shadow-sm sm:p-8">
+          <SectionHeading
+            eyebrow="Позиционирование"
+            title="Не ещё один чат с Excel"
+            description="SheetNorm — не просто AI-чат для таблиц. Продукт строится вокруг повторяемого процесса: загрузка файла, анализ структуры, создание правила, проверка результата, сохранение шаблона и повторная обработка похожих файлов."
+          />
+          <div className="mt-8">
+            <DataFlowVisual />
+          </div>
+        </div>
+      </section>
+
+      <section className="container-page py-14">
+        <SectionHeading
+          eyebrow="Экосистема"
+          title="Где место SheetNorm в существующей экосистеме"
+          description="Компании уже используют Excel, Power Query, BI-системы и ручные скрипты. Каждый инструмент полезен в своей зоне, а SheetNorm закрывает промежуток между хаотичными Excel-файлами и корпоративной аналитикой."
+        />
+        <div className="mt-8">
+          <CompetitorComparisonVisual />
+        </div>
+      </section>
+
+      <section className="container-page py-14">
+        <SectionHeading
+          eyebrow="Для кого"
+          title="Особенно полезно командам с регулярной входящей отчётностью"
+        />
+        <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-5">
+          {audienceCards.map(([title, description], index) => (
+            <article
+              key={title}
+              className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-primary/20"
+            >
+              <span className="text-xs font-bold tracking-[0.14em] text-primary">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mt-4 font-semibold text-ink">{title}</h3>
+              <p className="mt-3 text-sm leading-6 text-muted">{description}</p>
+            </article>
+          ))}
         </div>
       </section>
 

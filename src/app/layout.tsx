@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { AnimatedBackground } from "@/components/AnimatedBackground";
+import { AnimatedGridBackground } from "@/components/AnimatedGridBackground";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { siteConfig } from "@/lib/site";
@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body>
-        <AnimatedBackground />
+        <AnimatedGridBackground />
         <Header />
         <main>{children}</main>
         <Footer />

@@ -126,6 +126,17 @@ export function ProductMockup({ compact = false }: ProductMockupProps) {
                   </div>
                 ))}
               </div>
+              <div className="mt-3 flex flex-wrap items-center justify-between gap-2 rounded-xl border border-amber-200 bg-amber-50 px-3 py-2">
+                <p className="text-[9px] font-medium text-amber-800">
+                  2 предупреждения требуют проверки
+                </p>
+                <button
+                  type="button"
+                  className="rounded-lg bg-ink px-3 py-1.5 text-[9px] font-semibold text-white"
+                >
+                  Скачать результат
+                </button>
+              </div>
             </div>
           </div>
         </div>

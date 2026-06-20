@@ -5,9 +5,9 @@ import { Hero } from "@/components/Hero";
 import { LocalDeploymentVisual } from "@/components/LocalDeploymentVisual";
 import { PilotTimelineVisual } from "@/components/PilotTimelineVisual";
 import { ProductCard } from "@/components/ProductCard";
-import { ProductMockup } from "@/components/ProductMockup";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
+import { SheetNormInterfaceMockup } from "@/components/SheetNormInterfaceMockup";
 import { StatsStrip } from "@/components/StatsStrip";
 import { VisualSectionDivider } from "@/components/VisualSectionDivider";
 import { developmentProducts, readyProducts } from "@/lib/products";
@@ -81,7 +81,7 @@ export default function HomePage() {
           <div className="mt-10 grid items-start gap-7 xl:grid-cols-[0.7fr_1.3fr]">
             <ProductCard product={sheetNorm} />
             <Reveal delay={0.08}>
-              <ProductMockup />
+              <SheetNormInterfaceMockup />
             </Reveal>
           </div>
         </div>
