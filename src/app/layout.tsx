@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
+import "@/app/globals.css";
 import { AnimatedGridBackground } from "@/components/AnimatedGridBackground";
-import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { SiteFooter } from "@/components/SiteFooter";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
+  alternates: { canonical: "/" },
   title: {
     default: "FormaOps — прикладные ИИ-инструменты для бизнеса",
     template: "%s",
@@ -34,7 +36,8 @@ export default function RootLayout({
         <AnimatedGridBackground />
         <Header />
         <main>{children}</main>
-        <Footer />
+        <SiteFooter />
+        <Analytics />
       </body>
     </html>
   );

@@ -3,7 +3,7 @@ export const siteConfig = {
   tagline: "Превращаем хаос в рабочие инструменты.",
   description:
     "FormaOps разрабатывает локальные продукты для автоматизации работы с Excel-файлами, документами, отчётностью и корпоративными данными.",
-  url: "https://formaops.ru",
+  url: "https://formaops.vercel.app",
   contacts: {
     email: "c30nazar@gmail.com",
     telegram: "@ngggoat",

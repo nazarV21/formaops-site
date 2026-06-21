@@ -23,22 +23,16 @@ npm run build
 
 ## Визуальные компоненты
 
-В проект добавлены:
+Основная система:
 
-- `AnimatedHeroDiagram` — поток «файл → AI-инструкция → правило → готовые данные»;
-- `SheetNormInterfaceMockup` / `ProductMockup` — демонстрационный интерфейс SheetNorm;
-- `BeforeAfterTableDemo` — интерактивное сравнение таблиц;
-- `AdvantageCard` — карточки преимуществ с предметными мини-визуалами;
-- `CompetitorComparisonVisual` — нейтральное сравнение с альтернативами;
-- `DataFlowVisual` — акцент на роли AI и проверенных шаблонов;
-- `WorkflowVisual` — процесс создания и повторного применения правила;
-- `LocalDeploymentVisual` — целевой локальный контур;
-- `PilotTimelineVisual` — этапы пилотного внедрения;
-- `AnimatedGridBackground`, `AnimatedBackground`, `FloatingCards`, `DataFlowLine` — фон и микроанимации;
-- `InterfaceWindow` — переиспользуемая оболочка интерфейсного окна;
-- `StatsStrip` — честные операционные факты без маркетинговых метрик;
-- `VisualSectionDivider` — визуальные разделители;
-- `FAQAccordion` — раскрывающийся FAQ.
+- `Editorial.tsx` — внутренние hero, светлые/тёмные секции и финальные CTA;
+- `StudioSections.tsx` — hero-визуал студии, bento, process timeline, флагман, roadmap-карточки и интерактивное преобразование Excel;
+- `SheetNormSections.tsx` — product hero, сценарии, benefits bento, экосистема, Team/Enterprise switcher, отраслевые вкладки и пилот;
+- `ProductScreenshotFrame` — реальный скриншот или fallback SVG;
+- `LeadForm` / `LeadFormPanel` — единая системная форма;
+- `LegalDocumentLayout` — юридические страницы с оглавлением;
+- `FAQAccordion` — единый раскрывающийся FAQ;
+- `Header`, `SiteFooter`, `ContactMethodCard` — общая оболочка сайта.
 
 Все файлы, названия подразделений, цифры и строки в mockup-интерфейсах являются синтетическими демонстрационными примерами. Они не описывают клиентов или реальные внедрения.
 
@@ -90,8 +84,8 @@ npm run build
 Сайт учитывает системную настройку `prefers-reduced-motion`. Чтобы дополнительно уменьшить анимации, можно:
 
 1. сократить или убрать `animate`, `whileInView` и `whileHover` в компонентах;
-2. изменить длительности в `src/components/Reveal.tsx`;
-3. отключить фон, удалив `AnimatedBackground` из `src/app/layout.tsx`;
+2. изменить длительности в `StudioSections.tsx` и `SheetNormSections.tsx`;
+3. отключить фон, удалив `AnimatedGridBackground` из `src/app/layout.tsx`;
 4. изменить правила `@media (prefers-reduced-motion: reduce)` в `src/app/globals.css`.
 
 ## Форма заявки
@@ -104,6 +98,7 @@ npm run build
 - не принимает файлы;
 - сохраняется в `data/leads.json`;
 - получает `createdAt` и `sourcePage`.
+- содержит honeypot и ограничения длины;
 
 Каталог `data/` добавлен в `.gitignore`.
 
@@ -115,7 +110,7 @@ npm run build
 
 ## Перед production
 
-- заменить placeholder-контакты в `src/lib/site.ts`;
+- проверить актуальность контактов в `src/lib/site.ts`;
 - подтвердить реальный домен и `metadataBase`;
 - подключить канал доставки заявок;
 - согласовать privacy/terms с юристом;

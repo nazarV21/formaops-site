@@ -4,8 +4,8 @@
 
 :root {
   color-scheme: light;
-  background: #f8fafc;
-  color: #0f172a;
+  background: #f7f8fa;
+  color: #111827;
 }
 
 * {
@@ -19,8 +19,9 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background: rgba(248, 250, 252, 0.92);
-  color: #0f172a;
+  overflow-x: clip;
+  background: #f7f8fa;
+  color: #111827;
   font-family:
     Inter,
     ui-sans-serif,
@@ -73,8 +74,26 @@ a {
 }
 
 .container-page {
-  width: min(1120px, calc(100% - 32px));
+  width: min(1320px, calc(100% - 40px));
   margin-inline: auto;
+}
+
+.section-space {
+  padding-block: clamp(4.5rem, 8vw, 8.5rem);
+}
+
+.editorial-title {
+  font-size: clamp(2.25rem, 5vw, 4.75rem);
+  font-weight: 650;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.section-title {
+  font-size: clamp(1.875rem, 4vw, 3.25rem);
+  font-weight: 650;
+  letter-spacing: -0.045em;
+  line-height: 1.04;
 }
 
 .focus-ring {
@@ -88,7 +107,13 @@ a {
 
 @layer components {
   .form-input {
-    @apply w-full rounded-2xl border border-borderline bg-white px-4 py-3 text-ink shadow-sm outline-none transition placeholder:text-slate-400 focus:border-primary focus:ring-4 focus:ring-primary/10;
+    @apply w-full rounded-xl border border-slate-200 bg-white px-4 py-3.5 text-ink shadow-sm outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-primary focus:ring-4 focus:ring-primary/10 disabled:cursor-not-allowed disabled:bg-slate-100;
+  }
+}
+
+@media (max-width: 640px) {
+  .container-page {
+    width: min(100% - 32px, 1320px);
   }
 }
 

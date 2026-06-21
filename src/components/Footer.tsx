@@ -1,60 +1,82 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 
+const groups = [
+  {
+    title: "Продукты",
+    links: [
+      ["SheetNorm", "/products/sheetnorm"],
+      ["Все продукты", "/products"],
+    ],
+  },
+  {
+    title: "Студия",
+    links: [
+      ["Пилот", "/pilot"],
+      ["О студии", "/about"],
+      ["Контакты", "/contacts"],
+    ],
+  },
+  {
+    title: "Документы",
+    links: [
+      ["Политика", "/privacy"],
+      ["Условия", "/terms"],
+    ],
+  },
+] as const;
+
 export function Footer() {
   return (
-    <footer className="border-t border-borderline bg-white">
-      <div className="container-page grid gap-10 py-12 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
-        <div>
-          <Link
-            className="focus-ring inline-flex items-center gap-3 rounded-md"
-            href="/"
-          >
-            <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-ink text-lg font-bold text-white">
-              <img src="/favicon.svg" alt="logo" className="h-6 w-6 object-contain" />
-            </span>
-            <span className="text-lg font-semibold text-ink">FormaOps</span>
-          </Link>
-          <p className="mt-4 max-w-md leading-7 text-muted">
-            {siteConfig.description}
-          </p>
-          <p className="mt-4 text-sm text-slate-500">
-            Материалы сайта не являются публичной офертой.
-          </p>
+    <footer className="border-t border-slate-200 bg-white">
+      <div className="container-page py-14">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_0.7fr_0.7fr_0.7fr]">
+          <div>
+            <Link
+              href="/"
+              className="focus-ring rounded-md text-lg font-semibold tracking-tight text-ink"
+            >
+              FormaOps
+            </Link>
+            <p className="mt-4 max-w-sm text-sm leading-6 text-muted">
+              {siteConfig.description}
+            </p>
+            <p className="mt-4 text-xs text-slate-400">
+              Материалы сайта не являются публичной офертой.
+            </p>
+          </div>
+          {groups.map((group) => (
+            <div key={group.title}>
+              <h2 className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">
+                {group.title}
+              </h2>
+              <ul className="mt-4 space-y-3 text-sm">
+                {group.links.map(([label, href]) => (
+                  <li key={href}>
+                    <Link
+                      className="focus-ring rounded-md text-slate-600 transition hover:text-primary"
+                      href={href}
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
-        <div>
-          <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
-            Разделы
-          </h2>
-          <ul className="mt-4 space-y-3">
-            {siteConfig.footerLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  className="focus-ring rounded-md text-muted transition hover:text-primary"
-                  href={link.href}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
-            Контакты
-          </h2>
-          <ul className="mt-4 space-y-3 text-muted">
-            <li>
-              <a
-                className="focus-ring rounded-md transition hover:text-primary"
-                href={"mailto:" + siteConfig.contacts.email}
-              >
-                {siteConfig.contacts.email}
-              </a>
-            </li>
-            <li>{siteConfig.contacts.telegram}</li>
-            <li>{siteConfig.contacts.city}</li>
-          </ul>
+        <div className="mt-12 flex flex-col gap-3 border-t border-slate-200 pt-6 text-xs text-slate-500 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+          <span>© {new Date().getFullYear()} FormaOps</span>
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            <a
+              href={`mailto:${siteConfig.contacts.email}`}
+              className="hover:text-primary"
+            >
+              {siteConfig.contacts.email}
+            </a>
+            <span>{siteConfig.contacts.telegram}</span>
+            <span>{siteConfig.contacts.city}</span>
+          </div>
         </div>
       </div>
     </footer>

@@ -13,6 +13,7 @@ type LeadInput = {
   message?: unknown;
   consent?: unknown;
   sourcePage?: unknown;
+  website?: unknown;
 };
 
 type StoredLead = {
@@ -101,6 +102,10 @@ export async function POST(request: NextRequest) {
       { message: "Некорректный JSON." },
       { status: 400 },
     );
+  }
+
+  if (stringValue(payload.website)) {
+    return NextResponse.json({ message: "Заявка принята." }, { status: 201 });
   }
 
   const { lead, errors } = validate(payload);
